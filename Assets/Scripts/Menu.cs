@@ -30,5 +30,13 @@ public class Menu : MonoBehaviour {
 	{
 		SceneManager.LoadScene(6);
 	}
+	public void PlayGame7()
+	{
+		SceneManager.LoadScene(7);
+	}
+	public void PlayGame8()
+	{
+		SceneManager.LoadScene(8);
+	}
 	#endregion
 }
