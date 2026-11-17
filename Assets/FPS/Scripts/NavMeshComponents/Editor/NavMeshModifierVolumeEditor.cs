@@ -30,13 +30,6 @@ namespace UnityEditor.AI
             m_Area = serializedObject.FindProperty("m_Area");
             m_Center = serializedObject.FindProperty("m_Center");
             m_Size = serializedObject.FindProperty("m_Size");
-
-            NavMeshVisualizationSettings.showNavigation++;
-        }
-
-        void OnDisable()
-        {
-            NavMeshVisualizationSettings.showNavigation--;
         }
 
         Bounds GetBounds()
@@ -88,20 +81,17 @@ namespace UnityEditor.AI
         [DrawGizmo(GizmoType.NotInSelectionHierarchy | GizmoType.Pickable)]
         static void RenderBoxGizmoNotSelected(NavMeshModifierVolume navModifier, GizmoType gizmoType)
         {
-            if (NavMeshVisualizationSettings.showNavigation > 0)
-            {
-                var color = navModifier.enabled ? s_HandleColor : s_HandleColorDisabled;
-                var oldColor = Gizmos.color;
-                var oldMatrix = Gizmos.matrix;
+            var color = navModifier.enabled ? s_HandleColor : s_HandleColorDisabled;
+            var oldColor = Gizmos.color;
+            var oldMatrix = Gizmos.matrix;
 
-                Gizmos.matrix = navModifier.transform.localToWorldMatrix;
+            Gizmos.matrix = navModifier.transform.localToWorldMatrix;
 
-                Gizmos.color = color;
-                Gizmos.DrawWireCube(navModifier.center, navModifier.size);
+            Gizmos.color = color;
+            Gizmos.DrawWireCube(navModifier.center, navModifier.size);
 
-                Gizmos.matrix = oldMatrix;
-                Gizmos.color = oldColor;
-            }
+            Gizmos.matrix = oldMatrix;
+            Gizmos.color = oldColor;
 
             Gizmos.DrawIcon(navModifier.transform.position, "NavMeshModifierVolume Icon", true);
         }
@@ -130,17 +120,6 @@ namespace UnityEditor.AI
                     EditorUtility.SetDirty(target);
                 }
             }
-        }
-
-        [MenuItem("GameObject/AI/NavMesh Modifier Volume", false, 2001)]
-        static public void CreateNavMeshModifierVolume(MenuCommand menuCommand)
-        {
-            var parent = menuCommand.context as GameObject;
-            var go = NavMeshComponentsGUIUtility.CreateAndSelectGameObject("NavMesh Modifier Volume", parent);
-            go.AddComponent<NavMeshModifierVolume>();
-            var view = SceneView.lastActiveSceneView;
-            if (view != null)
-                view.MoveToView(go.transform);
         }
     }
 }

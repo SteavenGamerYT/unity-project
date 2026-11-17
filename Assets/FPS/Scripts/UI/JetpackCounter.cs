@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class JetpackCounter : MonoBehaviour
@@ -14,8 +14,12 @@ public class JetpackCounter : MonoBehaviour
 
     void Awake()
     {
-        m_Jetpack = FindObjectOfType<Jetpack>();
-        DebugUtility.HandleErrorIfNullFindObject<Jetpack, JetpackCounter>(m_Jetpack, this);
+        m_Jetpack = FindAnyObjectByType<Jetpack>();
+        if (m_Jetpack == null || fillBarColorChange == null || mainCanvasGroup == null || jetpackFillImage == null)
+        {
+            enabled = false;
+            return;
+        }
 
         fillBarColorChange.Initialize(1f, 0f);
     }

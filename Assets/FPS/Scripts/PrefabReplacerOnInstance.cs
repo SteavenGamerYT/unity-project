@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
@@ -13,7 +13,7 @@ public class PrefabReplacerOnInstance : MonoBehaviour
     {
 #if UNITY_EDITOR
         List<GameObject> allPrefabObjectsInScene = new List<GameObject>();
-        foreach (Transform t in GameObject.FindObjectsOfType<Transform>())
+        foreach (Transform t in GameObject.FindObjectsByType<Transform>())
         {
             if (PrefabUtility.IsAnyPrefabInstanceRoot(t.gameObject))
             {

@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using UnityEngine.Audio;
 
 public class AudioUtility
@@ -39,7 +39,10 @@ public class AudioUtility
     public static AudioMixerGroup GetAudioGroup(AudioGroups group)
     {
         if (m_AudioManager == null)
-            m_AudioManager = GameObject.FindObjectOfType<AudioManager>();
+            m_AudioManager = GameObject.FindAnyObjectByType<AudioManager>();
+
+        if (m_AudioManager == null)
+            return null;
 
         var groups = m_AudioManager.FindMatchingGroups(group.ToString());
 
@@ -53,7 +56,10 @@ public class AudioUtility
     public static void SetMasterVolume(float value)
     {
         if (m_AudioManager == null)
-            m_AudioManager = GameObject.FindObjectOfType<AudioManager>();
+            m_AudioManager = GameObject.FindAnyObjectByType<AudioManager>();
+
+        if (m_AudioManager == null)
+            return;
 
         if (value <= 0)
             value = 0.001f;
@@ -65,7 +71,10 @@ public class AudioUtility
     public static float GetMasterVolume()
     {
         if (m_AudioManager == null)
-            m_AudioManager = GameObject.FindObjectOfType<AudioManager>();
+            m_AudioManager = GameObject.FindAnyObjectByType<AudioManager>();
+
+        if (m_AudioManager == null)
+            return 1f;
 
         m_AudioManager.GetFloat("MasterVolume", out var valueInDB);
         return Mathf.Pow(10f, valueInDB / 20.0f);

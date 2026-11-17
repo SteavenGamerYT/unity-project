@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class WeaponHUDManager : MonoBehaviour
@@ -13,8 +13,12 @@ public class WeaponHUDManager : MonoBehaviour
 
     void Start()
     {
-        m_PlayerWeaponsManager = FindObjectOfType<PlayerWeaponsManager>();
-        DebugUtility.HandleErrorIfNullFindObject<PlayerWeaponsManager, WeaponHUDManager>(m_PlayerWeaponsManager, this);
+        m_PlayerWeaponsManager = FindAnyObjectByType<PlayerWeaponsManager>();
+        if (m_PlayerWeaponsManager == null || ammosPanel == null)
+        {
+            enabled = false;
+            return;
+        }
 
         WeaponController activeWeapon = m_PlayerWeaponsManager.GetActiveWeapon();
         if (activeWeapon)

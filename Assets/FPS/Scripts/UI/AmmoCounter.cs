@@ -41,7 +41,7 @@ public class AmmoCounter : MonoBehaviour
         weaponCounterIndex = weaponIndex;
         weaponImage.sprite = weapon.weaponIcon;
 
-        m_PlayerWeaponsManager = FindObjectOfType<PlayerWeaponsManager>();
+        m_PlayerWeaponsManager = FindAnyObjectByType<PlayerWeaponsManager>();
         DebugUtility.HandleErrorIfNullFindObject<PlayerWeaponsManager, AmmoCounter>(m_PlayerWeaponsManager, this);
 
         weaponIndexText.text = (weaponCounterIndex + 1).ToString();

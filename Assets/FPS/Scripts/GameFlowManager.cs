@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class GameFlowManager : MonoBehaviour
@@ -36,11 +36,13 @@ public class GameFlowManager : MonoBehaviour
 
     void Start()
     {
-        m_Player = FindObjectOfType<PlayerCharacterController>();
-        DebugUtility.HandleErrorIfNullFindObject<PlayerCharacterController, GameFlowManager>(m_Player, this);
-
-        m_ObjectiveManager = FindObjectOfType<ObjectiveManager>();
-		DebugUtility.HandleErrorIfNullFindObject<ObjectiveManager, GameFlowManager>(m_ObjectiveManager, this);
+        m_Player = FindAnyObjectByType<PlayerCharacterController>();
+        m_ObjectiveManager = FindAnyObjectByType<ObjectiveManager>();
+        if (m_Player == null || m_ObjectiveManager == null)
+        {
+            enabled = false;
+            return;
+        }
 
         AudioUtility.SetMasterVolume(1);
     }

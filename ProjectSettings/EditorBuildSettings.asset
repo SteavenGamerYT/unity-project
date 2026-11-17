@@ -20,4 +20,16 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Odex/Scenes/Leavel4.unity
     guid: 49a3192f71c43814e8e43310f137a80b
+  - enabled: 1
+    path: Assets/FPS/Scenes/IntroMenu.unity
+    guid: 56e3faabc5bb30f49a68bb8f1292f988
+  - enabled: 1
+    path: Assets/FPS/Scenes/SecondaryScene.unity
+    guid: 6e8f6a69825c8b14d9ac6948684a2180
+  - enabled: 1
+    path: Assets/FPS/Scenes/WinScene.unity
+    guid: 037d06fbede2b4041a843d9ee6fe750c
+  - enabled: 1
+    path: Assets/FPS/Scenes/LoseScene.unity
+    guid: 72e5c65a45893714484002914e3fd521
   m_configObjects: {}

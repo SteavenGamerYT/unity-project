@@ -39,10 +39,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1629744372840090113}
-  - component: {fileID: 3443520443596454291}
-  - component: {fileID: 865393381853430494}
-  - component: {fileID: 3568128595906748638}
-  - component: {fileID: 9067865729292985197}
   - component: {fileID: 459686815499728306}
   m_Layer: 8
   m_Name: GameHUD
@@ -66,71 +62,6 @@ Transform:
   m_Father: {fileID: 4860175763506045772}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3443520443596454291
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3947516234307621445}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c971cff0496fb3d48a9ce082496d6ef8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  jetpackFillImage: {fileID: 0}
-  mainCanvasGroup: {fileID: 0}
-  fillBarColorChange: {fileID: 0}
---- !u!114 &865393381853430494
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3947516234307621445}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d92192f1b2e47e444a80f725b8cbca36, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ammosPanel: {fileID: 0}
-  ammoCounterPrefab: {fileID: 645032500860478885, guid: 381e109c8e235f54cbcfbe7434554e49, type: 3}
---- !u!114 &3568128595906748638
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3947516234307621445}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ef607aeb00cc1214ab7aa1f86a984abf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  healthFillImage: {fileID: 0}
---- !u!114 &9067865729292985197
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3947516234307621445}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fed84cad6ab9472468348126dddd368a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  flashImage: {fileID: 0}
-  flashCanvasGroup: {fileID: 0}
-  vignetteCanvasGroup: {fileID: 0}
-  damageFlashColor: {r: 1, g: 0, b: 0, a: 1}
-  damageFlashDuration: 0.2
-  damageFlashMaxAlpha: 0.7
-  criticaHealthVignetteMaxAlpha: 1
-  pulsatingVignetteFrequency: 8
-  healFlashColor: {r: 0.50284797, g: 0.9343007, b: 0.9433962, a: 0.50980395}
-  healFlashDuration: 0.2
-  healFlashMaxAlpha: 0.7
 --- !u!114 &459686815499728306
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -255,7 +186,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4860175763506045772}
-  - component: {fileID: 4860175763506045773}
   - component: {fileID: 5850207856087470591}
   - component: {fileID: 1045119680607023556}
   m_Layer: 8
@@ -281,26 +211,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4860175763506045773
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4860175763506045770}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5e1fea5cb3ddbc249bd0181e6766db68, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  endSceneLoadDelay: 4
-  endGameFadeCanvasGroup: {fileID: 0}
-  winSceneName: WinScene
-  delayBeforeFadeToBlack: 4
-  delayBeforeWinMessage: 1
-  victorySound: {fileID: 8300000, guid: a533219934975884e81c1add37af9930, type: 3}
-  WinGameMessagePrefab: {fileID: 3003312392959327722, guid: f981094eb6c2a6f4f8a56f85c606e3d1, type: 3}
-  loseSceneName: LoseScene
 --- !u!114 &5850207856087470591
 MonoBehaviour:
   m_ObjectHideFlags: 0

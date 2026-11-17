@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class FeedbackFlashHUD : MonoBehaviour
@@ -41,13 +41,17 @@ public class FeedbackFlashHUD : MonoBehaviour
     void Start()
     {
         // Subscribe to player damage events
-        PlayerCharacterController playerCharacterController = FindObjectOfType<PlayerCharacterController>();
-        DebugUtility.HandleErrorIfNullFindObject<PlayerCharacterController, FeedbackFlashHUD>(playerCharacterController, this);
+        PlayerCharacterController playerCharacterController = FindAnyObjectByType<PlayerCharacterController>();
+        if (playerCharacterController == null || vignetteCanvasGroup == null || flashCanvasGroup == null || flashImage == null)
+        {
+            enabled = false;
+            return;
+        }
 
         m_PlayerHealth = playerCharacterController.GetComponent<Health>();
         DebugUtility.HandleErrorIfNullGetComponent<Health, FeedbackFlashHUD>(m_PlayerHealth, this, playerCharacterController.gameObject);
 
-        m_GameFlowManager = FindObjectOfType<GameFlowManager>();
+        m_GameFlowManager = FindAnyObjectByType<GameFlowManager>();
         DebugUtility.HandleErrorIfNullFindObject<GameFlowManager, FeedbackFlashHUD>(m_GameFlowManager, this);
 
         m_PlayerHealth.onDamaged += OnTakeDamage;
