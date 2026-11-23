@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using UnityEngine.Events;
 
 [RequireComponent(typeof(CharacterController), typeof(PlayerInputHandler), typeof(AudioSource))]
@@ -108,6 +108,7 @@ public class PlayerCharacterController : MonoBehaviour
     PlayerWeaponsManager m_WeaponsManager;
     Actor m_Actor;
     Vector3 m_GroundNormal;
+    static readonly Collider[] s_OverlapBuffer = new Collider[8];
     Vector3 m_CharacterVelocity;
     Vector3 m_LatestImpactSpeed;
     float m_LastTimeJumped = 0f;
@@ -407,15 +408,16 @@ public class PlayerCharacterController : MonoBehaviour
             // Detect obstructions
             if (!ignoreObstructions)
             {
-                Collider[] standingOverlaps = Physics.OverlapCapsule(
+                int numOverlaps = Physics.OverlapCapsuleNonAlloc(
                     GetCapsuleBottomHemisphere(),
                     GetCapsuleTopHemisphere(capsuleHeightStanding),
                     m_Controller.radius,
+                    s_OverlapBuffer,
                     -1,
                     QueryTriggerInteraction.Ignore);
-                foreach (Collider c in standingOverlaps)
+                for (int i = 0; i < numOverlaps; i++)
                 {
-                    if (c != m_Controller)
+                    if (s_OverlapBuffer[i] != m_Controller)
                     {
                         return false;
                     }

@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 
 [RequireComponent(typeof(Pickup))]
 public class WeaponPickup : MonoBehaviour
@@ -17,7 +17,9 @@ public class WeaponPickup : MonoBehaviour
         m_Pickup.onPick += OnPicked;
 
         // Set all children layers to default (to prefent seeing weapons through meshes)
-        foreach(Transform t in GetComponentsInChildren<Transform>())
+        var childTransforms = new System.Collections.Generic.List<Transform>();
+        GetComponentsInChildren(true, childTransforms);
+        foreach(Transform t in childTransforms)
         {
             if (t != transform)
                 t.gameObject.layer = 0;

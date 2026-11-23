@@ -1,14 +1,14 @@
 fileFormatVersion: 2
 guid: 788478d93ec5f0042baf5da13e58054d
 ModelImporter:
-  serializedVersion: 20101
+  serializedVersion: 24600
   internalIDToNameTable:
   - first:
       1: 100000
     second: Fence
   - first:
       1: 100002
-    second: Fence 1
+    second: Fenc1
   - first:
       1: 100004
     second: Ground
@@ -20,7 +20,7 @@ ModelImporter:
     second: Fence
   - first:
       4: 400002
-    second: Fence 1
+    second: Fenc1
   - first:
       4: 400004
     second: Ground
@@ -32,7 +32,7 @@ ModelImporter:
     second: Fence
   - first:
       23: 2300002
-    second: Fence 1
+    second: Fenc1
   - first:
       23: 2300004
     second: Ground
@@ -41,7 +41,7 @@ ModelImporter:
     second: Fence
   - first:
       33: 3300002
-    second: Fence 1
+    second: Fenc1
   - first:
       33: 3300004
     second: Ground
@@ -53,7 +53,7 @@ ModelImporter:
     second: Fence
   - first:
       43: 4300004
-    second: Fence
+    second: Fenc1
   - first:
       95: 9500000
     second: //RootNode
@@ -62,7 +62,7 @@ ModelImporter:
     materialImportMode: 1
     materialName: 0
     materialSearch: 1
-    materialLocation: 0
+    materialLocation: 1
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
@@ -85,7 +85,7 @@ ModelImporter:
     extraExposedTransformPaths: []
     extraUserProperties: []
     clipAnimations: []
-    isReadable: 1
+    isReadable: 0
   meshes:
     lODScreenPercentages: []
     globalScale: 1
@@ -93,6 +93,8 @@ ModelImporter:
     addColliders: 0
     useSRGBMaterialColor: 1
     sortHierarchyByName: 1
+    preBakeConvexCollisionMesh: 0
+    preBakeTriangleCollisionMesh: 0
     importVisibility: 0
     importBlendShapes: 1
     importCameras: 0
@@ -109,7 +111,7 @@ ModelImporter:
     maxBonesPerVertex: 4
     minBoneWeight: 0.001
     meshOptimizationFlags: -1
-    indexFormat: 1
+    indexFormat: 0
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88

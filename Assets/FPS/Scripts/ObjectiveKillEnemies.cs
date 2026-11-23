@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 
 [RequireComponent(typeof(Objective))]
 public class ObjectiveKillEnemies : MonoBehaviour
@@ -20,7 +20,11 @@ public class ObjectiveKillEnemies : MonoBehaviour
         DebugUtility.HandleErrorIfNullGetComponent<Objective, ObjectiveKillEnemies>(m_Objective, this, gameObject);
 
         m_EnemyManager = FindAnyObjectByType<EnemyManager>();
-        DebugUtility.HandleErrorIfNullFindObject<EnemyManager, ObjectiveKillEnemies>(m_EnemyManager, this);
+        if (m_EnemyManager == null)
+        {
+            enabled = false;
+            return;
+        }
         m_EnemyManager.onRemoveEnemy += OnKillEnemy;
 
         if (mustKillAllEnemies)

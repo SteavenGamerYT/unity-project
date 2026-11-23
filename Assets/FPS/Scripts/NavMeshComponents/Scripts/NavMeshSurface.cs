@@ -238,7 +238,8 @@ namespace UnityEngine.AI
             List<NavMeshModifierVolume> modifiers;
             if (m_CollectObjects == CollectObjects.Children)
             {
-                modifiers = new List<NavMeshModifierVolume>(GetComponentsInChildren<NavMeshModifierVolume>());
+                modifiers = new List<NavMeshModifierVolume>();
+                GetComponentsInChildren(modifiers);
                 modifiers.RemoveAll(x => !x.isActiveAndEnabled);
             }
             else
@@ -277,7 +278,8 @@ namespace UnityEngine.AI
             List<NavMeshModifier> modifiers;
             if (m_CollectObjects == CollectObjects.Children)
             {
-                modifiers = new List<NavMeshModifier>(GetComponentsInChildren<NavMeshModifier>());
+                modifiers = new List<NavMeshModifier>();
+                GetComponentsInChildren(modifiers);
                 modifiers.RemoveAll(x => !x.isActiveAndEnabled);
             }
             else

@@ -1,28 +1,62 @@
 fileFormatVersion: 2
 guid: 54b107e50acd7e24b96d7de887c68833
 ModelImporter:
-  serializedVersion: 23
-  fileIDToRecycleName:
-    100000: //RootNode
-    400000: //RootNode
-    2100000: 01 - Default
-    2100002: 'Material #13'
-    2100004: 'Material #14'
-    2100006: 'Material #15'
-    2100008: 'Material #16'
-    2100010: 'Material #12'
-    2100012: 01 - Default1
-    2100014: 'Material #17'
-    2100016: 'Material #18'
-    2100018: 'Material #19'
-    2100020: 'Material #20'
-    2300000: //RootNode
-    3300000: //RootNode
-    4300000: hamburger
-    4300002: Hamburger
+  serializedVersion: 24600
+  internalIDToNameTable:
+  - first:
+      1: 100000
+    second: //RootNode
+  - first:
+      4: 400000
+    second: //RootNode
+  - first:
+      21: 2100000
+    second: 01 - Default
+  - first:
+      21: 2100002
+    second: 'Material #13'
+  - first:
+      21: 2100004
+    second: 'Material #14'
+  - first:
+      21: 2100006
+    second: 'Material #15'
+  - first:
+      21: 2100008
+    second: 'Material #16'
+  - first:
+      21: 2100010
+    second: 'Material #12'
+  - first:
+      21: 2100012
+    second: 01 - Default1
+  - first:
+      21: 2100014
+    second: 'Material #17'
+  - first:
+      21: 2100016
+    second: 'Material #18'
+  - first:
+      21: 2100018
+    second: 'Material #19'
+  - first:
+      21: 2100020
+    second: 'Material #20'
+  - first:
+      23: 2300000
+    second: //RootNode
+  - first:
+      33: 3300000
+    second: //RootNode
+  - first:
+      43: 4300000
+    second: hamburger
+  - first:
+      43: 4300002
+    second: Hamburger
   externalObjects: {}
   materials:
-    importMaterials: 1
+    materialImportMode: 1
     materialName: 0
     materialSearch: 1
     materialLocation: 1
@@ -48,13 +82,17 @@ ModelImporter:
     extraExposedTransformPaths: []
     extraUserProperties: []
     clipAnimations: []
-    isReadable: 1
+    isReadable: 0
   meshes:
     lODScreenPercentages: []
     globalScale: 1
     meshCompression: 0
     addColliders: 0
+    fileIdsGeneration: 1
     useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    preBakeConvexCollisionMesh: 0
+    preBakeTriangleCollisionMesh: 0
     importVisibility: 1
     importBlendShapes: 1
     importCameras: 1
@@ -85,7 +123,7 @@ ModelImporter:
   importAnimation: 1
   copyAvatar: 0
   humanDescription:
-    serializedVersion: 2
+    serializedVersion: 3
     human: []
     skeleton: []
     armTwist: 0.5

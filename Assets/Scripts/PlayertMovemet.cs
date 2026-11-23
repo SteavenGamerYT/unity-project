@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 
 public class PlayertMovemet : MonoBehaviour {
 
@@ -25,7 +25,14 @@ public class PlayertMovemet : MonoBehaviour {
     void Start()
     {
         currentHealth = maxHealth;
-        healthBar.SetMaxHealth(maxHealth);
+        if (healthBar == null)
+        {
+            healthBar = FindAnyObjectByType<HealthBar>();
+        }
+        if (healthBar != null)
+        {
+            healthBar.SetMaxHealth(maxHealth);
+        }
     }
 
     void Update()

@@ -9,9 +9,9 @@ public class PrefabReplacerOnInstance : MonoBehaviour
 {
     public GameObject TargetPrefab;
 
+#if UNITY_EDITOR
     void Awake()
     {
-#if UNITY_EDITOR
         List<GameObject> allPrefabObjectsInScene = new List<GameObject>();
         foreach (Transform t in GameObject.FindObjectsByType<Transform>())
         {
@@ -40,6 +40,6 @@ public class PrefabReplacerOnInstance : MonoBehaviour
                 break;
             }
         }
-#endif
     }
+#endif
 }

@@ -1,19 +1,35 @@
 fileFormatVersion: 2
 guid: 5e2d72411753da244851ae358f741a58
 ModelImporter:
-  serializedVersion: 23
-  fileIDToRecycleName:
-    100000: Altar
-    100002: //RootNode
-    400000: Altar
-    400002: //RootNode
-    2100000: Altar_Stone
-    2300000: Altar
-    3300000: Altar
-    4300000: Altar
+  serializedVersion: 24600
+  internalIDToNameTable:
+  - first:
+      1: 100000
+    second: Altar
+  - first:
+      1: 100002
+    second: //RootNode
+  - first:
+      4: 400000
+    second: Altar
+  - first:
+      4: 400002
+    second: //RootNode
+  - first:
+      21: 2100000
+    second: Altar_Stone
+  - first:
+      23: 2300000
+    second: Altar
+  - first:
+      33: 3300000
+    second: Altar
+  - first:
+      43: 4300000
+    second: Altar
   externalObjects: {}
   materials:
-    importMaterials: 1
+    materialImportMode: 1
     materialName: 0
     materialSearch: 1
     materialLocation: 1
@@ -39,13 +55,17 @@ ModelImporter:
     extraExposedTransformPaths: []
     extraUserProperties: []
     clipAnimations: []
-    isReadable: 1
+    isReadable: 0
   meshes:
     lODScreenPercentages: []
     globalScale: 1
     meshCompression: 0
     addColliders: 0
+    fileIdsGeneration: 1
     useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    preBakeConvexCollisionMesh: 0
+    preBakeTriangleCollisionMesh: 0
     importVisibility: 1
     importBlendShapes: 1
     importCameras: 1
@@ -76,7 +96,7 @@ ModelImporter:
   importAnimation: 1
   copyAvatar: 0
   humanDescription:
-    serializedVersion: 2
+    serializedVersion: 3
     human: []
     skeleton: []
     armTwist: 0.5

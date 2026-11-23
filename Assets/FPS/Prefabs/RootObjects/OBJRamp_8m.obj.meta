@@ -1,16 +1,32 @@
 fileFormatVersion: 2
 guid: b13f5faa09e1e184290877278ca51839
 ModelImporter:
-  serializedVersion: 23
-  fileIDToRecycleName:
-    100000: Ramp_8m
-    100002: //RootNode
-    400000: Ramp_8m
-    400002: //RootNode
-    2100000: Ramp_Blue
-    2300000: Ramp_8m
-    3300000: Ramp_8m
-    4300000: Ramp_8m
+  serializedVersion: 24600
+  internalIDToNameTable:
+  - first:
+      1: 100000
+    second: Ramp_8m
+  - first:
+      1: 100002
+    second: //RootNode
+  - first:
+      4: 400000
+    second: Ramp_8m
+  - first:
+      4: 400002
+    second: //RootNode
+  - first:
+      21: 2100000
+    second: Ramp_Blue
+  - first:
+      23: 2300000
+    second: Ramp_8m
+  - first:
+      33: 3300000
+    second: Ramp_8m
+  - first:
+      43: 4300000
+    second: Ramp_8m
   externalObjects:
   - first:
       type: UnityEngine:Material
@@ -18,7 +34,7 @@ ModelImporter:
       name: Ramp_Blue
     second: {fileID: 2100000, guid: 22237c12152745e4d9a8755b953703f5, type: 2}
   materials:
-    importMaterials: 1
+    materialImportMode: 1
     materialName: 0
     materialSearch: 1
     materialLocation: 1
@@ -44,13 +60,17 @@ ModelImporter:
     extraExposedTransformPaths: []
     extraUserProperties: []
     clipAnimations: []
-    isReadable: 1
+    isReadable: 0
   meshes:
     lODScreenPercentages: []
     globalScale: 1
     meshCompression: 0
-    addColliders: 0
+    addColliders: 1
+    fileIdsGeneration: 1
     useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    preBakeConvexCollisionMesh: 0
+    preBakeTriangleCollisionMesh: 1
     importVisibility: 1
     importBlendShapes: 1
     importCameras: 1
@@ -81,7 +101,7 @@ ModelImporter:
   importAnimation: 1
   copyAvatar: 0
   humanDescription:
-    serializedVersion: 2
+    serializedVersion: 3
     human: []
     skeleton: []
     armTwist: 0.5

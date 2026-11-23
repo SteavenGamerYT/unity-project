@@ -2,7 +2,6 @@
 
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using UnityEditor.Experimental.SceneManagement;
 using UnityEditor.IMGUI.Controls;
 using UnityEditor.SceneManagement;
@@ -266,7 +265,7 @@ namespace UnityEditor.AI
             var bakeOperations = NavMeshAssetManager.instance.GetBakeOperations();
             for (int i = bakeOperations.Count - 1; i >= 0; --i)
             {
-                if (!targets.Contains(bakeOperations[i].surface))
+                if (System.Array.IndexOf(targets, bakeOperations[i].surface) < 0)
                     continue;
 
                 var oper = bakeOperations[i].bakeOperation;

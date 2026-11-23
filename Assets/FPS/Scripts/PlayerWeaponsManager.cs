@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -406,7 +406,9 @@ public class PlayerWeaponsManager : MonoBehaviour
 
                 // Assign the first person layer to the weapon
                 int layerIndex = Mathf.RoundToInt(Mathf.Log(FPSWeaponLayer.value, 2)); // This function converts a layermask to a layer index
-                foreach (Transform t in weaponInstance.gameObject.GetComponentsInChildren<Transform>(true))
+                var childTransforms = new List<Transform>();
+                weaponInstance.GetComponentsInChildren(true, childTransforms);
+                foreach (Transform t in childTransforms)
                 {
                     t.gameObject.layer = layerIndex;
                 }

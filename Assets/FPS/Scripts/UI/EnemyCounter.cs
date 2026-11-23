@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class EnemyCounter : MonoBehaviour
@@ -8,6 +8,8 @@ public class EnemyCounter : MonoBehaviour
     public Text enemiesText;
 
     EnemyManager m_EnemyManager;
+    int m_LastRemaining = -1;
+    int m_LastTotal = -1;
 
     void Awake()
     {
@@ -17,6 +19,17 @@ public class EnemyCounter : MonoBehaviour
 
     void Update()
     {
-        enemiesText.text = m_EnemyManager.numberOfEnemiesRemaining + "/" + m_EnemyManager.numberOfEnemiesTotal;
+        if (m_EnemyManager == null || enemiesText == null)
+            return;
+
+        int remaining = m_EnemyManager.numberOfEnemiesRemaining;
+        int total = m_EnemyManager.numberOfEnemiesTotal;
+
+        if (remaining != m_LastRemaining || total != m_LastTotal)
+        {
+            m_LastRemaining = remaining;
+            m_LastTotal = total;
+            enemiesText.text = remaining.ToString() + "/" + total.ToString();
+        }
     }
 }

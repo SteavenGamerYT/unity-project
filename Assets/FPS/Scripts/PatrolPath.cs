@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class PatrolPath : MonoBehaviour
@@ -12,7 +12,10 @@ public class PatrolPath : MonoBehaviour
     {
         foreach (var enemy in enemiesToAssign)
         {
-            enemy.patrolPath = this;
+            if (enemy != null)
+            {
+                enemy.patrolPath = this;
+            }
         }
     }
 

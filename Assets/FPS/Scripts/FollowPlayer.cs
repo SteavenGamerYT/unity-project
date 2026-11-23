@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -10,15 +10,42 @@ public class FollowPlayer : MonoBehaviour
     void Start()
     {
         PlayerCharacterController playerCharacterController = GameObject.FindAnyObjectByType<PlayerCharacterController>();
-        DebugUtility.HandleErrorIfNullFindObject<PlayerCharacterController, FollowPlayer>(playerCharacterController, this);
+        if (playerCharacterController != null)
+        {
+            m_PlayerTransform = playerCharacterController.transform;
+        }
+        else
+        {
+            GameObject playerObj = GameObject.FindWithTag("Player");
+            if (playerObj != null)
+            {
+                m_PlayerTransform = playerObj.transform;
+            }
+            else
+            {
+                PlayertMovemet pm = GameObject.FindAnyObjectByType<PlayertMovemet>();
+                if (pm != null)
+                {
+                    m_PlayerTransform = pm.transform;
+                }
+            }
+        }
 
-        m_PlayerTransform = playerCharacterController.transform;
-
-        m_OriginalOffset = transform.position - m_PlayerTransform.position;
+        if (m_PlayerTransform != null)
+        {
+            m_OriginalOffset = transform.position - m_PlayerTransform.position;
+        }
+        else
+        {
+            enabled = false;
+        }
     }
 
     void LateUpdate()
     {
-        transform.position = m_PlayerTransform.position + m_OriginalOffset;
+        if (m_PlayerTransform != null)
+        {
+            transform.position = m_PlayerTransform.position + m_OriginalOffset;
+        }
     }
 }

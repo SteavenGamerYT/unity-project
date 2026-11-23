@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -22,8 +22,10 @@ public class Compass : MonoBehaviour
     void Awake()
     {
         PlayerCharacterController playerCharacterController = FindAnyObjectByType<PlayerCharacterController>();
-        DebugUtility.HandleErrorIfNullFindObject<PlayerCharacterController, Compass>(playerCharacterController, this);
-        m_PlayerTransform = playerCharacterController.transform;
+        if (playerCharacterController != null)
+        {
+            m_PlayerTransform = playerCharacterController.transform;
+        }
 
         m_WidthMultiplier = compasRect.rect.width / visibilityAngle;
         m_heightOffset = -compasRect.rect.height / 2;
@@ -31,6 +33,14 @@ public class Compass : MonoBehaviour
 
     void Update()
     {
+        if (m_PlayerTransform == null)
+        {
+            PlayerCharacterController playerCharacterController = FindAnyObjectByType<PlayerCharacterController>();
+            if (playerCharacterController != null)
+                m_PlayerTransform = playerCharacterController.transform;
+            else
+                return;
+        }
         // this is all very WIP, and needs to be reworked
         foreach (var element in m_ElementsDictionnary)
         {

@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(ProjectileBase))]
@@ -52,6 +52,7 @@ public class ProjectileStandard : MonoBehaviour
     Vector3 m_TrajectoryCorrectionVector;
     Vector3 m_ConsumedTrajectoryCorrectionVector;
     List<Collider> m_IgnoredColliders;
+    static readonly RaycastHit[] s_SphereCastHits = new RaycastHit[32];
 
     const QueryTriggerInteraction k_TriggerInteraction = QueryTriggerInteraction.Collide;
 
@@ -152,9 +153,10 @@ public class ProjectileStandard : MonoBehaviour
 
             // Sphere cast
             Vector3 displacementSinceLastFrame = tip.position - m_LastRootPosition;
-            RaycastHit[] hits = Physics.SphereCastAll(m_LastRootPosition, radius, displacementSinceLastFrame.normalized, displacementSinceLastFrame.magnitude, hittableLayers, k_TriggerInteraction);
-            foreach (var hit in hits)
+            int hitCount = Physics.SphereCastNonAlloc(m_LastRootPosition, radius, displacementSinceLastFrame.normalized, s_SphereCastHits, displacementSinceLastFrame.magnitude, hittableLayers, k_TriggerInteraction);
+            for (int i = 0; i < hitCount; i++)
             {
+                RaycastHit hit = s_SphereCastHits[i];
                 if (IsHitValid(hit) && hit.distance < closestHit.distance)
                 {
                     foundHit = true;

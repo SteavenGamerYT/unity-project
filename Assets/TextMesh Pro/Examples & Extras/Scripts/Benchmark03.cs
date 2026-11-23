@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using UnityEngine.TextCore.LowLevel;
 
@@ -14,12 +14,6 @@ namespace TMPro.Examples
         public BenchmarkType Benchmark;
 
         public Font SourceFont;
-
-
-        void Awake()
-        {
-
-        }
 
 
         void Start()

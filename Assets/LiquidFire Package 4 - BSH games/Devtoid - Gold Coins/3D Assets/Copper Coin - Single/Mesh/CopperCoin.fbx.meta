@@ -3,19 +3,35 @@ guid: 24071304340076549a2e49390b69cdec
 timeCreated: 1577135001
 licenseType: Store
 ModelImporter:
-  serializedVersion: 19
-  fileIDToRecycleName:
-    100000: //RootNode
-    100002: GoldCoin
-    400000: //RootNode
-    400002: GoldCoin
-    2300000: GoldCoin
-    3300000: GoldCoin
-    4300000: GoldCoin
+  serializedVersion: 24600
+  internalIDToNameTable:
+  - first:
+      1: 100000
+    second: //RootNode
+  - first:
+      1: 100002
+    second: GoldCoin
+  - first:
+      4: 400000
+    second: //RootNode
+  - first:
+      4: 400002
+    second: GoldCoin
+  - first:
+      23: 2300000
+    second: GoldCoin
+  - first:
+      33: 3300000
+    second: GoldCoin
+  - first:
+      43: 4300000
+    second: GoldCoin
+  externalObjects: {}
   materials:
-    importMaterials: 1
+    materialImportMode: 1
     materialName: 0
     materialSearch: 1
+    materialLocation: 1
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
@@ -35,12 +51,17 @@ ModelImporter:
     animationWrapMode: 0
     extraExposedTransformPaths: []
     clipAnimations: []
-    isReadable: 1
+    isReadable: 0
   meshes:
     lODScreenPercentages: []
     globalScale: 1
     meshCompression: 0
     addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    preBakeConvexCollisionMesh: 0
+    preBakeTriangleCollisionMesh: 0
+    fileIdsGeneration: 1
     importBlendShapes: 1
     swapUVChannels: 0
     generateSecondaryUV: 0
@@ -60,7 +81,7 @@ ModelImporter:
   importAnimation: 1
   copyAvatar: 0
   humanDescription:
-    serializedVersion: 2
+    serializedVersion: 3
     human: []
     skeleton: []
     armTwist: 0.5

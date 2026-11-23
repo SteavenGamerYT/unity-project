@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Events;
@@ -166,16 +166,20 @@ public class EnemyController : MonoBehaviour
             m_NavMeshAgent.acceleration = m_NavigationModule.acceleration;
         }
 
-        foreach (var renderer in GetComponentsInChildren<Renderer>(true))
+        var sharedMaterials = new List<Material>();
+        var enemyRenderers = new List<Renderer>();
+        GetComponentsInChildren(true, enemyRenderers);
+        foreach (var renderer in enemyRenderers)
         {
-            for (int i = 0; i < renderer.sharedMaterials.Length; i++)
+            renderer.GetSharedMaterials(sharedMaterials);
+            for (int i = 0; i < sharedMaterials.Count; i++)
             {
-                if (renderer.sharedMaterials[i] == eyeColorMaterial)
+                if (sharedMaterials[i] == eyeColorMaterial)
                 {
                     m_EyeRendererData = new RendererIndexData(renderer, i);
                 }
 
-                if (renderer.sharedMaterials[i] == bodyMaterial)
+                if (sharedMaterials[i] == bodyMaterial)
                 {
                     m_BodyRenderers.Add(new RendererIndexData(renderer, i));
                 }

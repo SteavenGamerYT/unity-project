@@ -1,4 +1,3 @@
-﻿using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -26,6 +25,7 @@ public class DetectionModule : MonoBehaviour
     protected float m_TimeLastSeenTarget = Mathf.NegativeInfinity;
 
     ActorsManager m_ActorsManager;
+    static readonly RaycastHit[] s_HitsBuffer = new RaycastHit[32];
 
     const string k_AnimAttackParameter = "Attack";
     const string k_AnimOnDamagedParameter = "OnDamaged";
@@ -56,13 +56,24 @@ public class DetectionModule : MonoBehaviour
                 if (sqrDistance < sqrDetectionRange && sqrDistance < closestSqrDistance)
                 {
                     // Check for obstructions
-                    RaycastHit[] hits = Physics.RaycastAll(detectionSourcePoint.position, (otherActor.aimPoint.position - detectionSourcePoint.position).normalized, detectionRange, -1, QueryTriggerInteraction.Ignore);
+                    int hitCount = Physics.RaycastNonAlloc(detectionSourcePoint.position, (otherActor.aimPoint.position - detectionSourcePoint.position).normalized, s_HitsBuffer, detectionRange, -1, QueryTriggerInteraction.Ignore);
                     RaycastHit closestValidHit = new RaycastHit();
                     closestValidHit.distance = Mathf.Infinity;
                     bool foundValidHit = false;
-                    foreach (var hit in hits)
+                    for (int h = 0; h < hitCount; h++)
                     {
-                        if (!selfColliders.Contains(hit.collider) && hit.distance < closestValidHit.distance)
+                        RaycastHit hit = s_HitsBuffer[h];
+                        bool isSelfCollider = false;
+                        for (int i = 0; i < selfColliders.Length; i++)
+                        {
+                            if (selfColliders[i] == hit.collider)
+                            {
+                                isSelfCollider = true;
+                                break;
+                            }
+                        }
+
+                        if (!isSelfCollider && hit.distance < closestValidHit.distance)
                         {
                             closestValidHit = hit;
                             foundValidHit = true;

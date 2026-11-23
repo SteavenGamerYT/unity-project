@@ -20,6 +20,17 @@ public class MiniProfiler : EditorWindow
         public Color color;
     }
 
+    private static int GetTriangleCount(Mesh mesh)
+    {
+        if (mesh == null) return 0;
+        int count = 0;
+        for (int i = 0; i < mesh.subMeshCount; i++)
+        {
+            count += (int)(mesh.GetIndexCount(i) / 3);
+        }
+        return count;
+    }
+
     Vector2 m_ScrollPos;
     bool m_MustRepaint = false;
     bool m_MustLaunchHeatmapNextFrame = false;
@@ -204,7 +215,7 @@ public class MiniProfiler : EditorWindow
             if (!mf.sharedMesh)
                 continue;
 
-            polyCount += mf.sharedMesh.triangles.Length / 3;
+            polyCount += GetTriangleCount(mf.sharedMesh);
 
             bool willBeCombined = false;
             if(mainMeshCombiner)
@@ -232,7 +243,7 @@ public class MiniProfiler : EditorWindow
 
         foreach (SkinnedMeshRenderer sm in skinnedMeshes)
         {
-            polyCount += sm.sharedMesh.triangles.Length / 3;
+            polyCount += GetTriangleCount(sm.sharedMesh);
         }
 
         int rigidbodiesCount = 0;
@@ -292,7 +303,7 @@ public class MiniProfiler : EditorWindow
                 {
                     BoundsAndCount b = new BoundsAndCount();
                     b.bounds = r.bounds;
-                    b.count = mf.sharedMesh.triangles.Length / 3;
+                    b.count = GetTriangleCount(mf.sharedMesh);
 
                     meshBoundsAndCount.Add(b);
                 }
@@ -306,7 +317,7 @@ public class MiniProfiler : EditorWindow
                     {
                         BoundsAndCount b = new BoundsAndCount();
                         b.bounds = r.bounds;
-                        b.count = smr.sharedMesh.triangles.Length / 3;
+                        b.count = GetTriangleCount(smr.sharedMesh);
 
                         meshBoundsAndCount.Add(b);
                     }

@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 
@@ -9,7 +9,7 @@ namespace TMPro.Examples
     {
 
         private Renderer m_Renderer;
-        private Material m_Material;
+        private MaterialPropertyBlock m_PropBlock;
 
         public AnimationCurve GlowCurve;
 
@@ -19,9 +19,7 @@ namespace TMPro.Examples
         {
             // Cache a reference to object's renderer
             m_Renderer = GetComponent<Renderer>();
-
-            // Cache a reference to object's material and create an instance by doing so.
-            m_Material = m_Renderer.material;
+            m_PropBlock = new MaterialPropertyBlock();
         }
 
         void Start()
@@ -41,7 +39,9 @@ namespace TMPro.Examples
                 //m_Material.SetFloat(ShaderPropertyIDs.ID_LightAngle, lightAngle);
 
                 glowPower = GlowCurve.Evaluate(m_frame);
-                m_Material.SetFloat(ShaderUtilities.ID_GlowPower, glowPower);
+                m_Renderer.GetPropertyBlock(m_PropBlock);
+                m_PropBlock.SetFloat(ShaderUtilities.ID_GlowPower, glowPower);
+                m_Renderer.SetPropertyBlock(m_PropBlock);
 
                 m_frame += Time.deltaTime * Random.Range(0.2f, 0.3f);
                 yield return new WaitForEndOfFrame();

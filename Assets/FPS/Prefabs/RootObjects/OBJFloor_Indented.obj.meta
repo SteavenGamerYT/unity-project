@@ -1,18 +1,38 @@
 fileFormatVersion: 2
 guid: 2307b738aa8971a44852d5e80de915ff
 ModelImporter:
-  serializedVersion: 23
-  fileIDToRecycleName:
-    100000: Floor_Indented
-    100002: //RootNode
-    400000: Floor_Indented
-    400002: //RootNode
-    2100000: Floor_Grey
-    2100002: Floor_DarkGrey
-    2300000: Floor_Indented
-    3300000: Floor_Indented
-    4300000: Floor_Indented
-    6400000: Floor_Indented
+  serializedVersion: 24600
+  internalIDToNameTable:
+  - first:
+      1: 100000
+    second: Floor_Indented
+  - first:
+      1: 100002
+    second: //RootNode
+  - first:
+      4: 400000
+    second: Floor_Indented
+  - first:
+      4: 400002
+    second: //RootNode
+  - first:
+      21: 2100000
+    second: Floor_Grey
+  - first:
+      21: 2100002
+    second: Floor_DarkGrey
+  - first:
+      23: 2300000
+    second: Floor_Indented
+  - first:
+      33: 3300000
+    second: Floor_Indented
+  - first:
+      43: 4300000
+    second: Floor_Indented
+  - first:
+      64: 6400000
+    second: Floor_Indented
   externalObjects:
   - first:
       type: UnityEngine:Material
@@ -25,7 +45,7 @@ ModelImporter:
       name: Floor_Grey
     second: {fileID: 2100000, guid: 35fe0b7167cdb944a868e2996465f9da, type: 2}
   materials:
-    importMaterials: 1
+    materialImportMode: 1
     materialName: 0
     materialSearch: 1
     materialLocation: 1
@@ -51,13 +71,17 @@ ModelImporter:
     extraExposedTransformPaths: []
     extraUserProperties: []
     clipAnimations: []
-    isReadable: 1
+    isReadable: 0
   meshes:
     lODScreenPercentages: []
     globalScale: 1
     meshCompression: 0
     addColliders: 1
+    fileIdsGeneration: 1
     useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    preBakeConvexCollisionMesh: 0
+    preBakeTriangleCollisionMesh: 1
     importVisibility: 1
     importBlendShapes: 1
     importCameras: 1
@@ -88,7 +112,7 @@ ModelImporter:
   importAnimation: 1
   copyAvatar: 0
   humanDescription:
-    serializedVersion: 2
+    serializedVersion: 3
     human: []
     skeleton: []
     armTwist: 0.5

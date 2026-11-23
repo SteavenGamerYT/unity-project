@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections.Generic;
 
 public class OverheatBehavior : MonoBehaviour
@@ -49,11 +49,15 @@ public class OverheatBehavior : MonoBehaviour
         emissionModule.rateOverTimeMultiplier = 0f;
 
         m_OverheatingRenderersData = new List<RendererIndexData>();
-        foreach (var renderer in GetComponentsInChildren<Renderer>(true))
+        var sharedMaterials = new List<Material>();
+        var renderers = new List<Renderer>();
+        GetComponentsInChildren(true, renderers);
+        foreach (var renderer in renderers)
         {
-            for (int i = 0; i < renderer.sharedMaterials.Length; i++)
+            renderer.GetSharedMaterials(sharedMaterials);
+            for (int i = 0; i < sharedMaterials.Count; i++)
             {
-                if (renderer.sharedMaterials[i] == overheatingMaterial)
+                if (sharedMaterials[i] == overheatingMaterial)
                     m_OverheatingRenderersData.Add(new RendererIndexData(renderer, i));
             }
         }

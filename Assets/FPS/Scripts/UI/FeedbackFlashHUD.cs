@@ -54,8 +54,11 @@ public class FeedbackFlashHUD : MonoBehaviour
         m_GameFlowManager = FindAnyObjectByType<GameFlowManager>();
         DebugUtility.HandleErrorIfNullFindObject<GameFlowManager, FeedbackFlashHUD>(m_GameFlowManager, this);
 
-        m_PlayerHealth.onDamaged += OnTakeDamage;
-        m_PlayerHealth.onHealed += OnHealed;
+        if (m_PlayerHealth != null)
+        {
+            m_PlayerHealth.onDamaged += OnTakeDamage;
+            m_PlayerHealth.onHealed += OnHealed;
+        }
     }
 
     private void Update()
@@ -65,7 +68,7 @@ public class FeedbackFlashHUD : MonoBehaviour
             vignetteCanvasGroup.gameObject.SetActive(true);
             float vignetteAlpha = (1 - (m_PlayerHealth.currentHealth / m_PlayerHealth.maxHealth / m_PlayerHealth.criticalHealthRatio)) * criticaHealthVignetteMaxAlpha;
 
-            if (m_GameFlowManager.gameIsEnding)
+            if (m_GameFlowManager != null && m_GameFlowManager.gameIsEnding)
                 vignetteCanvasGroup.alpha = vignetteAlpha;
             else
                 vignetteCanvasGroup.alpha = ((Mathf.Sin(Time.time * pulsatingVignetteFrequency) / 2) + 0.5f) * vignetteAlpha;

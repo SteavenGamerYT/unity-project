@@ -71,7 +71,7 @@ LightmapSettings:
     m_FinalGatherRayCount: 1024
     m_ReflectionCompression: 2
     m_MixedBakeMode: 1
-    m_BakeBackend: 0
+    m_BakeBackend: 2
     m_PVRSampling: 1
     m_PVRDirectSampleCount: 32
     m_PVRSampleCount: 500
@@ -743,7 +743,6 @@ GameObject:
   - component: {fileID: 1562965278}
   - component: {fileID: 1562965277}
   - component: {fileID: 1562965275}
-  - component: {fileID: 1562965279}
   m_Layer: 0
   m_Name: TextMeshPro
   m_TagString: Untagged
@@ -916,14 +915,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!222 &1562965279
-CanvasRenderer:
-  m_ObjectHideFlags: 2
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1562965274}
-  m_CullTransparentMesh: 0
 --- !u!224 &1562965280
 RectTransform:
   m_ObjectHideFlags: 0

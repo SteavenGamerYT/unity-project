@@ -1,17 +1,35 @@
 fileFormatVersion: 2
 guid: cbf9f84f6fe461748b563d70057103bb
 ModelImporter:
-  serializedVersion: 23
-  fileIDToRecycleName:
-    100000: Torus
-    100002: //RootNode
-    400000: Torus
-    400002: //RootNode
-    2100000: Sign_Green_Emissive
-    2100002: TorusMat
-    2300000: Torus
-    3300000: Torus
-    4300000: Torus
+  serializedVersion: 24600
+  internalIDToNameTable:
+  - first:
+      1: 100000
+    second: Torus
+  - first:
+      1: 100002
+    second: //RootNode
+  - first:
+      4: 400000
+    second: Torus
+  - first:
+      4: 400002
+    second: //RootNode
+  - first:
+      21: 2100000
+    second: Sign_Green_Emissive
+  - first:
+      21: 2100002
+    second: TorusMat
+  - first:
+      23: 2300000
+    second: Torus
+  - first:
+      33: 3300000
+    second: Torus
+  - first:
+      43: 4300000
+    second: Torus
   externalObjects:
   - first:
       type: UnityEngine:Material
@@ -19,7 +37,7 @@ ModelImporter:
       name: TorusMat
     second: {fileID: 2100000, guid: a8f80855e983a7e4290e228f45185f94, type: 2}
   materials:
-    importMaterials: 1
+    materialImportMode: 1
     materialName: 0
     materialSearch: 1
     materialLocation: 1
@@ -45,13 +63,17 @@ ModelImporter:
     extraExposedTransformPaths: []
     extraUserProperties: []
     clipAnimations: []
-    isReadable: 1
+    isReadable: 0
   meshes:
     lODScreenPercentages: []
     globalScale: 1
     meshCompression: 0
     addColliders: 0
+    fileIdsGeneration: 1
     useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    preBakeConvexCollisionMesh: 0
+    preBakeTriangleCollisionMesh: 0
     importVisibility: 1
     importBlendShapes: 1
     importCameras: 1
@@ -82,7 +104,7 @@ ModelImporter:
   importAnimation: 1
   copyAvatar: 0
   humanDescription:
-    serializedVersion: 2
+    serializedVersion: 3
     human: []
     skeleton: []
     armTwist: 0.5

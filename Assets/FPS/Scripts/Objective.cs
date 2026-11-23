@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using UnityEngine.Events;
 
 public class Objective : MonoBehaviour
@@ -24,18 +24,24 @@ public class Objective : MonoBehaviour
     {
         // add this objective to the list contained in the objective manager
         ObjectiveManager objectiveManager = FindAnyObjectByType<ObjectiveManager>();
-        DebugUtility.HandleErrorIfNullFindObject<ObjectiveManager, Objective>(objectiveManager, this);
-        objectiveManager.RegisterObjective(this);
+        if (objectiveManager != null)
+        {
+            objectiveManager.RegisterObjective(this);
+        }
 
         // register this objective in the ObjectiveHUDManger
         m_ObjectiveHUDManger = FindAnyObjectByType<ObjectiveHUDManger>();
-        DebugUtility.HandleErrorIfNullFindObject<ObjectiveHUDManger, Objective>(m_ObjectiveHUDManger, this);
-        m_ObjectiveHUDManger.RegisterObjective(this);
+        if (m_ObjectiveHUDManger != null)
+        {
+            m_ObjectiveHUDManger.RegisterObjective(this);
+        }
 
         // register this objective in the NotificationHUDManager
         m_NotificationHUDManager = FindAnyObjectByType<NotificationHUDManager>();
-        DebugUtility.HandleErrorIfNullFindObject<NotificationHUDManager, Objective>(m_NotificationHUDManager, this);
-        m_NotificationHUDManager.RegisterObjective(this);
+        if (m_NotificationHUDManager != null)
+        {
+            m_NotificationHUDManager.RegisterObjective(this);
+        }
     }
 
     public void UpdateObjective(string descriptionText, string counterText, string notificationText)

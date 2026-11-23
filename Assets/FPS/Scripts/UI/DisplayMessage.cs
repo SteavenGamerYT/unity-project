@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 
 public class DisplayMessage : MonoBehaviour
 {
@@ -18,13 +18,16 @@ public class DisplayMessage : MonoBehaviour
     {
         m_InitTime = Time.time;
         m_DisplayMessageManager = FindAnyObjectByType<DisplayMessageManager>();
-        DebugUtility.HandleErrorIfNullFindObject<DisplayMessageManager, DisplayMessage>(m_DisplayMessageManager, this);
+        if (m_DisplayMessageManager == null)
+        {
+            enabled = false;
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (m_WasDisplayed)
+        if (m_WasDisplayed || m_DisplayMessageManager == null)
             return;
 
         if (Time.time - m_InitTime > delayBeforeShowing)

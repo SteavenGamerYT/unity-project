@@ -1,17 +1,35 @@
 fileFormatVersion: 2
 guid: 8b30135d3ebbf57468d16c0fecd1cff0
 ModelImporter:
-  serializedVersion: 23
-  fileIDToRecycleName:
-    100000: Prism
-    100002: //RootNode
-    400000: Prism
-    400002: //RootNode
-    2100000: Sign_Teal_Transparent
-    2100002: PrismMat
-    2300000: Prism
-    3300000: Prism
-    4300000: Prism
+  serializedVersion: 24600
+  internalIDToNameTable:
+  - first:
+      1: 100000
+    second: Prism
+  - first:
+      1: 100002
+    second: //RootNode
+  - first:
+      4: 400000
+    second: Prism
+  - first:
+      4: 400002
+    second: //RootNode
+  - first:
+      21: 2100000
+    second: Sign_Teal_Transparent
+  - first:
+      21: 2100002
+    second: PrismMat
+  - first:
+      23: 2300000
+    second: Prism
+  - first:
+      33: 3300000
+    second: Prism
+  - first:
+      43: 4300000
+    second: Prism
   externalObjects:
   - first:
       type: UnityEngine:Material
@@ -19,7 +37,7 @@ ModelImporter:
       name: Sign_Teal_Transparent
     second: {fileID: 2100000, guid: f265aebb27994b642b7483b3ab817694, type: 2}
   materials:
-    importMaterials: 1
+    materialImportMode: 1
     materialName: 0
     materialSearch: 1
     materialLocation: 1
@@ -45,13 +63,17 @@ ModelImporter:
     extraExposedTransformPaths: []
     extraUserProperties: []
     clipAnimations: []
-    isReadable: 1
+    isReadable: 0
   meshes:
     lODScreenPercentages: []
     globalScale: 1
     meshCompression: 0
     addColliders: 0
+    fileIdsGeneration: 1
     useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    preBakeConvexCollisionMesh: 0
+    preBakeTriangleCollisionMesh: 0
     importVisibility: 1
     importBlendShapes: 1
     importCameras: 1
@@ -82,7 +104,7 @@ ModelImporter:
   importAnimation: 1
   copyAvatar: 0
   humanDescription:
-    serializedVersion: 2
+    serializedVersion: 3
     human: []
     skeleton: []
     armTwist: 0.5

@@ -1,24 +1,56 @@
 fileFormatVersion: 2
 guid: 22fd404f75517024ca75ed6ea174002e
 ModelImporter:
-  serializedVersion: 23
-  fileIDToRecycleName:
-    100000: PBRamp_4m
-    100002: //RootNode
-    100004: Ramp_4m
-    400000: PBRamp_4m
-    400002: //RootNode
-    400004: Ramp_4m
-    2100000: Ramp_Blue
-    2100002: PBRamp_4mMat
-    2300000: PBRamp_4m
-    2300002: Ramp_4m
-    3300000: PBRamp_4m
-    3300002: Ramp_4m
-    4300000: PBRamp_4m
-    4300002: Ramp_4m
-    6400000: PBRamp_4m
-    6400002: Ramp_4m
+  serializedVersion: 24600
+  internalIDToNameTable:
+  - first:
+      1: 100000
+    second: PBRamp_4m
+  - first:
+      1: 100002
+    second: //RootNode
+  - first:
+      1: 100004
+    second: Ramp_4m
+  - first:
+      4: 400000
+    second: PBRamp_4m
+  - first:
+      4: 400002
+    second: //RootNode
+  - first:
+      4: 400004
+    second: Ramp_4m
+  - first:
+      21: 2100000
+    second: Ramp_Blue
+  - first:
+      21: 2100002
+    second: PBRamp_4mMat
+  - first:
+      23: 2300000
+    second: PBRamp_4m
+  - first:
+      23: 2300002
+    second: Ramp_4m
+  - first:
+      33: 3300000
+    second: PBRamp_4m
+  - first:
+      33: 3300002
+    second: Ramp_4m
+  - first:
+      43: 4300000
+    second: PBRamp_4m
+  - first:
+      43: 4300002
+    second: Ramp_4m
+  - first:
+      64: 6400000
+    second: PBRamp_4m
+  - first:
+      64: 6400002
+    second: Ramp_4m
   externalObjects:
   - first:
       type: UnityEngine:Material
@@ -31,7 +63,7 @@ ModelImporter:
       name: Ramp_Blue
     second: {fileID: 2100000, guid: 22237c12152745e4d9a8755b953703f5, type: 2}
   materials:
-    importMaterials: 1
+    materialImportMode: 1
     materialName: 0
     materialSearch: 1
     materialLocation: 1
@@ -57,13 +89,17 @@ ModelImporter:
     extraExposedTransformPaths: []
     extraUserProperties: []
     clipAnimations: []
-    isReadable: 1
+    isReadable: 0
   meshes:
     lODScreenPercentages: []
     globalScale: 1
     meshCompression: 0
     addColliders: 1
+    fileIdsGeneration: 1
     useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    preBakeConvexCollisionMesh: 0
+    preBakeTriangleCollisionMesh: 1
     importVisibility: 1
     importBlendShapes: 1
     importCameras: 1
@@ -94,7 +130,7 @@ ModelImporter:
   importAnimation: 1
   copyAvatar: 0
   humanDescription:
-    serializedVersion: 2
+    serializedVersion: 3
     human: []
     skeleton: []
     armTwist: 0.5

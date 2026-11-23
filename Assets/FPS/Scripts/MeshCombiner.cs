@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class MeshCombiner : MonoBehaviour
@@ -22,7 +22,7 @@ public class MeshCombiner : MonoBehaviour
         List<MeshRenderer> validRenderers = new List<MeshRenderer>();
         foreach (GameObject combineParent in combineParents)
         {
-            validRenderers.AddRange(combineParent.GetComponentsInChildren<MeshRenderer>());
+            combineParent.GetComponentsInChildren(true, validRenderers);
         }
 
         if (useGrid)

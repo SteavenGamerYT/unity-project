@@ -31,7 +31,10 @@ namespace TMPro.Examples
         {
             AnimationCurve newCurve = new AnimationCurve();
 
-            newCurve.keys = curve.keys;
+            for (int i = 0; i < curve.length; i++)
+            {
+                newCurve.AddKey(curve[i]);
+            }
 
             return newCurve;
         }
@@ -59,7 +62,7 @@ namespace TMPro.Examples
 
             while (true)
             {
-                if (!m_TextComponent.havePropertiesChanged && old_CurveScale == CurveScale && old_curve.keys[1].value == VertexCurve.keys[1].value)
+                if (!m_TextComponent.havePropertiesChanged && old_CurveScale == CurveScale && old_curve[1].value == VertexCurve[1].value)
                 {
                     yield return null;
                     continue;

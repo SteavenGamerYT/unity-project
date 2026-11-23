@@ -1,4 +1,4 @@
-﻿using System.IO;
+using System.IO;
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
@@ -62,8 +62,8 @@ public class TakeScreenshot : MonoBehaviour
 
         if (m_ScreenshotTaken)
         { 
-            LoadScreenshot();
 #if UNITY_EDITOR
+            LoadScreenshot();
             AssetDatabase.Refresh();
 #endif
 
@@ -77,6 +77,7 @@ public class TakeScreenshot : MonoBehaviour
         m_TakeScreenshot = true;
     }
 
+#if UNITY_EDITOR
     void LoadScreenshot()
     {
         if (File.Exists(getPath()))
@@ -89,4 +90,5 @@ public class TakeScreenshot : MonoBehaviour
             previewImage.texture = m_Texture;
         }
     }
+#endif
 }

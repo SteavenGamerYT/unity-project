@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class CrosshairManager : MonoBehaviour
@@ -17,15 +17,22 @@ public class CrosshairManager : MonoBehaviour
     void Start()
     {
         m_WeaponsManager = GameObject.FindAnyObjectByType<PlayerWeaponsManager>();
-        DebugUtility.HandleErrorIfNullFindObject<PlayerWeaponsManager, CrosshairManager>(m_WeaponsManager, this);
-
-        OnWeaponChanged(m_WeaponsManager.GetActiveWeapon());
-
-        m_WeaponsManager.onSwitchedToWeapon += OnWeaponChanged;
+        if (m_WeaponsManager != null)
+        {
+            OnWeaponChanged(m_WeaponsManager.GetActiveWeapon());
+            m_WeaponsManager.onSwitchedToWeapon += OnWeaponChanged;
+        }
+        else
+        {
+            enabled = false;
+        }
     }
 
     void Update()
     {
+        if (m_WeaponsManager == null)
+            return;
+
         UpdateCrosshairPointingAtEnemy(false);
         m_WasPointingAtEnemy = m_WeaponsManager.isPointingAtEnemy;
     }

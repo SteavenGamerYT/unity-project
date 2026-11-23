@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 
 public class NotificationHUDManager : MonoBehaviour
 {
@@ -11,12 +11,12 @@ public class NotificationHUDManager : MonoBehaviour
     void Awake()
     {
         PlayerWeaponsManager playerWeaponsManager = FindAnyObjectByType<PlayerWeaponsManager>();
-        DebugUtility.HandleErrorIfNullFindObject<PlayerWeaponsManager, NotificationHUDManager>(playerWeaponsManager, this);
-        playerWeaponsManager.onAddedWeapon += OnPickupWeapon;
+        if (playerWeaponsManager != null)
+            playerWeaponsManager.onAddedWeapon += OnPickupWeapon;
 
         Jetpack jetpack = FindAnyObjectByType<Jetpack>();
-        DebugUtility.HandleErrorIfNullFindObject<Jetpack, NotificationHUDManager>(jetpack, this);
-        jetpack.onUnlockJetpack += OnUnlockJetpack;
+        if (jetpack != null)
+            jetpack.onUnlockJetpack += OnUnlockJetpack;
     }
 
     void OnUpdateObjective(UnityActionUpdateObjective updateObjective)

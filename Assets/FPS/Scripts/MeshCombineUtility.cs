@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
 
@@ -58,12 +58,19 @@ public static class MeshCombineUtility
             if (mesh == null)
                 continue;
 
+            if (!mesh.isReadable)
+            {
+                Debug.LogWarning("[MeshCombineUtility] Mesh on renderer is not readable. Enable 'Read/Write' in ModelImporter settings to combine it.", meshRenderer);
+                continue;
+            }
+
             Transform t = meshRenderer.GetComponent<Transform>();
-            Material[] materials = meshRenderer.sharedMaterials;
+            var materials = new List<Material>();
+            meshRenderer.GetSharedMaterials(materials);
 
             for (int s = 0; s < mesh.subMeshCount; s++)
             {
-                if (materials[s] == null)
+                if (s >= materials.Count || materials[s] == null)
                     continue;
 
                 int batchIndex = GetExistingRenderBatch(renderBatches, materials[s], meshRenderer, s);

@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class StanceHUD : MonoBehaviour
@@ -13,10 +13,15 @@ public class StanceHUD : MonoBehaviour
     private void Start()
     {
         PlayerCharacterController character = FindAnyObjectByType<PlayerCharacterController>();
-        DebugUtility.HandleErrorIfNullFindObject<PlayerCharacterController, StanceHUD>(character, this);
-        character.onStanceChanged += OnStanceChanged;
-
-        OnStanceChanged(character.isCrouching);
+        if (character != null)
+        {
+            character.onStanceChanged += OnStanceChanged;
+            OnStanceChanged(character.isCrouching);
+        }
+        else
+        {
+            enabled = false;
+        }
     }
 
     void OnStanceChanged(bool crouched)
